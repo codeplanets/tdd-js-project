@@ -16,7 +16,12 @@ class Money {
 }
 
 class Portfolio {
-    add(money) {
+    constructor() {
+        this.money = [];
+    }
+
+    add(...money) {
+        this.money = this.money.concat(money);
     }
     
     evaluate(currency) {
