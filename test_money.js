@@ -1,4 +1,8 @@
 const assert = require('assert');
+const Money = require('./money');
+const Portfolio = require('./portfolio');
+
+console.log('Running tests...');
 
 let fiveDollars = new Money(5, "USD");
 let tenDollars = new Money(10, "USD");
@@ -18,3 +22,5 @@ let portfolio = new Portfolio();
 
 portfolio.add(fiveDollars, tenDollars);
 assert.deepStrictEqual(portfolio.evaluate("USD"), fifteenDollars);
+
+console.log('All tests passed!');
