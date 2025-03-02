@@ -29,10 +29,16 @@ class MoneyTest {
         assert.deepStrictEqual(portfolio.evaluate("USD"), fifteenDollars);
     }
     
+    getAllTestMethods() {
+        return Object.getOwnPropertyNames(MoneyTest.prototype).filter( (prop) => {
+            return typeof MoneyTest.prototype[prop] == 'function' && prop.startsWith('test');
+        });
+    }
+
     runAllTests() {
-        this.testMultiplication();
-        this.testDivision();
-        this.testAddition();
+        this.getAllTestMethods().forEach( (testMethod) => {
+            this[testMethod]();
+        });
     }
 }
 
