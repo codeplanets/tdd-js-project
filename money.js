@@ -1,4 +1,4 @@
-class Money {
+export class Money {
     constructor(amount, currency) {
         this.amount = amount;
         this.currency = currency;
@@ -12,5 +12,3 @@ class Money {
         return new Money(this.amount / divisor, this.currency);
     }
 }
-
-module.exports = Money;

@@ -1,6 +1,6 @@
-const assert = require('assert');
-const Money = require('./money');
-const Portfolio = require('./portfolio');
+import * as assert from 'assert';
+import { Money } from './money.js';
+import { Portfolio } from './portfolio.js';
 
 console.log('Running tests...');
 
