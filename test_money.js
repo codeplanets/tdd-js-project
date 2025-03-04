@@ -37,13 +37,19 @@ class MoneyTest {
 
     runAllTests() {
         this.getAllTestMethods().forEach( (testMethod) => {
-            this[testMethod]();
+            console.log(`Running test: ${testMethod}`);
+            let method = Reflect.get(this, testMethod);
+            try {
+                Reflect.apply(method, this, []);
+            } catch (e) {
+                if (e instanceof assert.AssertionError) {
+                    console.error(e);
+                } else {
+                    throw e;
+                }
+            }
         });
     }
 }
 
-console.log('Running tests...');
-
 new MoneyTest().runAllTests();
-
-console.log('All tests passed!');
